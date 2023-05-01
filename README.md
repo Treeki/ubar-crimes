@@ -53,3 +53,13 @@ This is an undocumented preference that's not shown in the UI as far as I can te
 ## Icons for WINE applications
 
 The WINE Mac driver seems to set the dock icon by using `[NSApp setApplicationIconImage:]` (ref `dlls/winemac.drv/cocoa_app.m` in the WINE repo). I don't know if there's any way to get this from a separate process without delving into the dock's internals, and that's a bit too much yak shaving for tonight.
+
+## Window Grouping Oddness
+
+I'm not sure if this is related to one of the changes I've made (possibly force-enabling "Single Window Uses Title"), but with window grouping set to "Automatic", there's an odd behaviour difference depending on whether it has kicked in or not.
+
+With grouping on, clicking the active app will **hide** it, even if it's a single-window app.
+
+With grouping off, clicking the active app will **minimise** it, and this doesn't seem to work with WINE apps.
+
+Fixing minimise for WINE will probably be simple, but I'm not sure if I want to keep this inconsistency anyway...

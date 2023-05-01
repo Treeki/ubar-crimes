@@ -152,7 +152,6 @@ static void new_toggleApp_(BSStackView *self, SEL sel, BOOL flag) {
 		} else {
 			[[app runningApp] unhide];
 
-			// TODO i should force-enable singleWindowUsesTitle
 			if ([filteredWindows count] == 1 && [prefs singleWindowUsesTitle]) {
 				BSWindow *window = [filteredWindows objectAtIndex:0];
 				[app bringWindowToFrontByWindowNumber:[window windowNumber]];
